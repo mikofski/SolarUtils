@@ -36,18 +36,20 @@ PLATFORM = sys.platform
 if PLATFORM == 'win32':
     LIB_FILE = '%s.dll'
     MACROS = [('WIN32', None)]
+    CCFLAGS = ['/openmp']
     if PYVERSION.major >= 3 and PYVERSION.minor >= 5:
         LDFLAGS = ['/DLL']
 elif PLATFORM == 'darwin':
     LIB_FILE = 'lib%s.dylib'
     RPATH = "-Wl,-rpath,@loader_path/"
     INSTALL_NAME = "@rpath/" + LIB_FILE
-    CCFLAGS = LDFLAGS = ['-fPIC']
+    CCFLAGS = ['-fPIC', '-Xpreprocessor', '-fopenmp']
+    LDFLAGS = ['-fPIC', '-Xpreprocessor', '-fopenmp', '-lomp']
 elif PLATFORM in ['linux', 'linux2']:
     PLATFORM = 'linux'
     LIB_FILE = 'lib%s.so'
     RPATH = "-Wl,-rpath,${ORIGIN}"
-    CCFLAGS = LDFLAGS = ['-fPIC']
+    CCFLAGS = LDFLAGS = ['-fPIC', '-fopenmp']
 else:
     sys.exit('Platform "%s" is unknown or unsupported.' % PLATFORM)
 

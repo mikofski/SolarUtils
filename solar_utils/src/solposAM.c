@@ -111,7 +111,12 @@ DllExport long get_solposAM( float location[3], int datetimes[][6],
     int settings[][2], float orientation[][2], float shadowband[][3],
     long err_code[])
 {
-    for (size_t i=0; i<cnt; i++){
+    int i;
+    int ncores = 4;
+    int chunk = (int)(cnt / ncores);
+    #pragma omp parallel for shared(err_code,datetimes,angles,airmass,settings, \
+            orientation,shadowband) private(i) schedule(static,chunk)
+    for (i=0; i<cnt; i++){
         err_code[i] = solposAM( location, datetimes[i], weather, angles[i],
             airmass[i], settings[i], orientation[i], shadowband[i] );
     }
