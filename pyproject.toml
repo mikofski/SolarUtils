@@ -1,0 +1,19 @@
+[project]
+name = "solarutils"
+version = "0.4.0"
+description = "Python wrappers around NREL SOLPOS and SPECTRL2"
+readme = "README.rst"
+authors = [
+    { name = "Mark Mikofski", email = "bwana.marko@yahoo.com" }
+]
+requires-python = ">=3.10"
+dependencies = [pip, setuptools]
+license = "BSD 3-Clause"
+license-files = ["LICENSE"]
+
+[project.scripts]
+solarutils = "solarutils:main"
+
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"

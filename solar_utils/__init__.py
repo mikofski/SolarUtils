@@ -7,9 +7,9 @@ This is the solar utilities package.
 
 from solar_utils.core import solposAM, spectrl2, get_solpos8760, get_solposAM
 
-__version__ = '0.3'
-__release__ = 'Carpenters'
+__version__ = '0.4'
+__release__ = 'Doctors'
 __author__ = 'Mark Mikofski'
-__email__ = 'mark.mikofski@sunpowercorp.com'
-__url__ = 'https://github.com/SunPower/SolarUtils'
+__email__ = 'bwana.marko@yahoo.com'
+__url__ = 'https://github.com/mikofski/SolarUtils'
 __all__ = ['solposAM', 'spectrl2', 'get_solpos8760', 'get_solposAM']

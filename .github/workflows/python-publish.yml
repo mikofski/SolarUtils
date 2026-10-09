@@ -1,0 +1,62 @@
+name: Upload Python Package
+
+on:
+  push:
+    tags:
+      - 'v*'  # trigger on versioned tags
+
+permissions:
+  contents: read
+
+jobs:
+
+  release-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Build release distributions
+        run: python setup.py sdist
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+  release-matrix:
+    strategy:
+      matrix:
+        pyver: [10, 11, 12, 13, 14]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.${{ matrix.pyver }}"
+
+      - name: Build release distributions
+        run: python setup.py bdist_wheel
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref }}
+          name: ${{ github.ref_name }}
+          files: dist/*

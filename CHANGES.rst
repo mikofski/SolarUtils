@@ -4,6 +4,15 @@ Changes
 For more recent changes, please see
 `GitHub Releases <https://github.com/SunPower/SolarUtils/releases>`_.
 
+v0.4 - Doctors (2026-10-08)
+---------------------------
+* apply conda-forge patches
+* create github actions
+
+v0.3 - Carpenters (2019-05-22)
+------------------------------
+* adds ``get_solposAM`` and ``get_solpos8760``
+
 v0.2.1 - Bartenders (2016-07-11)
 --------------------------------
 * add documentation

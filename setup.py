@@ -1,8 +1,7 @@
 """
 SolarUtils Package Setup
-Copyright (c) 2016 SunPower Corp.
-Confidential & Proprietary
-Do Not Distribute
+Copyright (c) 2026 Mark Mikofski
+forked from SunPower/SolarUtils
 """
 
 import sys
