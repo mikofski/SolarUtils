@@ -7,7 +7,7 @@ authors = [
     { name = "Mark Mikofski", email = "bwana.marko@yahoo.com" }
 ]
 requires-python = ">=3.10"
-dependencies = [pip, setuptools]
+dependencies = ["pip", "setuptools"]
 license = "BSD 3-Clause"
 license-files = ["LICENSE"]
 
