@@ -11,9 +11,6 @@ dependencies = ["pip", "setuptools"]
 license = "BSD 3-Clause"
 license-files = ["LICENSE"]
 
-[project.scripts]
-solarutils = "solarutils:main"
-
 [build-system]
 requires = ["setuptools >= 77.0.3"]
 build-backend = "setuptools.build_meta"
