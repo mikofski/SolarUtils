@@ -6,7 +6,7 @@ on:
       - 'v*'  # trigger on versioned tags
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
 
@@ -53,6 +53,21 @@ jobs:
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
+        with:
+          name: release-dists
+          path: dist/
+
+
+  gh-publish:
+    runs-on: ubuntu-latest
+    needs:
+      - release-matrix
+    permissions:
+      contents: write
+
+    steps:
+      - name: Retrieve release distributions
+        uses: actions/download-artifact@v4
         with:
           name: release-dists
           path: dist/
