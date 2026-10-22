@@ -6,7 +6,7 @@ Solar utilities based on `SOLPOS
 `NREL RREDC Solar Resource Models and Tools
 <http://www.nrel.gov/rredc/models_tools.html>`_
 
-2013, 2019 SunPower Corp.
+2026 Mark Mikofski
 """
 
 import ctypes

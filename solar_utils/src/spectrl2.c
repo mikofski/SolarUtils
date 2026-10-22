@@ -1,6 +1,4 @@
-// 2013 Sunpower Corp.
-// Confidential & Proprietary
-// Do Not Distribute
+// 2026 Mark Mikofski
 
 // include C Standard Library headers
 #include <math.h>

@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'SolarUtils'
-copyright = u'2016, SunPower'
+copyright = u'2026, Mark Mikofski'
 author = unicode(__author__)
 
 # The version info for the project you're documenting, acts as replacement for
@@ -124,7 +124,7 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'github_user': 'SunPower',
+    'github_user': 'mikofski',
     'github_repo': 'SolarUtils',
     'github_banner': True,
     'show_related': True

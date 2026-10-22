@@ -2,7 +2,7 @@
 """
 Exceptions for solar utilities.
 
-2013 SunPower Corp.
+2026 Mark Mikofski
 """
 
 

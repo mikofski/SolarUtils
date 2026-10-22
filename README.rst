@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/SunPower/SolarUtils.svg?branch=master
-    :target: https://travis-ci.org/SunPower/SolarUtils
+.. image:: https://github.com/mikofski/SolarUtils/actions/workflows/python-test.yml/badge.svg
+    :target: https://github.com/mikofski/SolarUtils/actions/workflows/python-test.yml
 
 SolarUtils is set of Python wrappers around the publicly available
 `NREL <http://www.nrel.gov/>`_

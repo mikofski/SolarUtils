@@ -1,4 +1,4 @@
-// 2013, 2019 Sunpower Corp.
+// 2026 Mark Mikofski
 
 // include C Standard Library headers
 #include <math.h>

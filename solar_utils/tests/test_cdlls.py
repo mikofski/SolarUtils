@@ -5,18 +5,17 @@ Tests for solar utilities.
 
 Usage
 =====
-This code uses nose. Enter the following in a CMD shell::
+This code uses pytest. Enter the following in a CMD shell::
 
-    $ nosetests --verbose
+    $ pytest --verbose
 
-2013, 2019 SunPower Corp.
+2026 Mark Mikofski
 """
 
 import datetime as pydatetime
 import json
 import numpy as np
 import os
-from nose.tools import ok_
 
 from solar_utils import *
 from solar_utils.exceptions import SOLPOS_Error, SPECTRL2_Error
@@ -127,10 +126,11 @@ def test_solposAM():
     # call test function
     angles, airmass = solposAM(location, datetime, weather)
     # test OUTPUTS are within TOL
-    ok_(RELDIFF(angles[0], test_data['angles'][0]) < TOL)
-    ok_(RELDIFF(angles[1], test_data['angles'][1]) < TOL)
-    ok_(RELDIFF(airmass[0], test_data['airmass'][0]) < TOL)
-    ok_(RELDIFF(airmass[1], test_data['airmass'][1]) < TOL)
+    # FIXME: use np.testing.assert_allclose instead of manual RELDIFF checks
+    assert np.all(RELDIFF(angles[0], test_data['angles'][0]) < TOL)
+    assert np.all(RELDIFF(angles[1], test_data['angles'][1]) < TOL)
+    assert np.all(RELDIFF(airmass[0], test_data['airmass'][0]) < TOL)
+    assert np.all(RELDIFF(airmass[1], test_data['airmass'][1]) < TOL)
     # test errors - YEAR
     datetime = [2051, 6, 5, 12, 31, 0]
     try:
@@ -195,6 +195,7 @@ def test_spectrl2():
     _specglo = np.ctypeslib.as_array(specglo)
     _specx = np.ctypeslib.as_array(specx)
     # test OUTPUT are within TOL
+    # FIXME: use np.testing.assert_allclose instead of manual RELDIFF checks
     assert np.all(RELDIFF(_specdif, test_data['specdif']) < TOL)
     assert np.all(RELDIFF(_specdir, test_data['specdir']) < TOL)
     assert np.all(RELDIFF(_specetr, test_data['specetr']) < TOL)

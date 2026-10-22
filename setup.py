@@ -184,7 +184,7 @@ if LIB_FILES_EXIST and 'sdist' not in sys.argv:
     PKG_DATA += [SOLPOSAM_LIB_FILE, SPECTRL2_LIB_FILE]
 
 # Tests will require these packages
-test_requires = ['numpy', 'nose']
+test_requires = ['numpy', 'pytest']
 
 setup(
     name='SolarUtils',
@@ -199,5 +199,5 @@ setup(
     packages=[NAME, TESTS],
     package_data={NAME: PKG_DATA, TESTS: TEST_DATA},
     ext_modules=[DUMMY],
-    extras_require={'testing': test_requires}
+    extras_require={'test': test_requires}
 )
