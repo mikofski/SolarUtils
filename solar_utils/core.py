@@ -201,7 +201,7 @@ def spectrl2(units, location, datetime, weather, orientation,
     Calculate solar spectrum by calling functions exported by
     :data:`SPECTRL2DLL`.
 
-    :param units: set ``units`` = 1 for W/m\ :sup:`2`/micron
+    :param units: set ``units`` = 1 for W/m:sup:`2`/micron
     :type units: int
     :param location: latitude, longitude and UTC-timezone
     :type location: float

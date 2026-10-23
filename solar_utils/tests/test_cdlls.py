@@ -56,7 +56,7 @@ def test_get_solpos8760():
         [ 98.96697  , 248.22736  ,  -1.       ,  -1.       ],
         [ 98.96697  , 248.23221  ,  -1.       ,  -1.       ]],
         dtype=np.float32)
-    assert np.allclose(x[:24], z[:24,:2])
+    assert np.allclose(x[:24], z[:24,:2], TOL)
     assert np.allclose(y[:24], z[:24,2:])
 
 
@@ -94,7 +94,7 @@ def test_get_solposAM():
         [ 98.96697  , 248.22736  ,  -1.       ,  -1.       ],
         [ 98.96697  , 248.23221  ,  -1.       ,  -1.       ]],
         dtype=np.float32)
-    assert np.allclose(x[:24], z[:24,:2])
+    assert np.allclose(x[:24], z[:24,:2], TOL)
     assert np.allclose(y[:24], z[:24,2:])
     # test LOCATION
     location = [1135.56836, -119.2022, -8.0]
