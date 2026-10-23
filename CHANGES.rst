@@ -4,10 +4,11 @@ Changes
 For more recent changes, please see
 `GitHub Releases <https://github.com/mikofski/SolarUtils/releases>`_.
 
-v0.4.7 - Dentists (2026-10-22)
+v0.4.8 - Dentists (2026-10-22)
 ------------------------------
 * use pytest
 * publish to PyPI
+* publish docs
 
 v0.4 - Doctors (2026-10-08)
 ---------------------------
