@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Welcome to SolarUtils’s documentation! &#8212; SolarUtils Dentists documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=712fa57f" />
+    <script src="_static/documentation_options.js?v=7455f271"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Core" href="core.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-solarutils-s-documentation">
+<h1>Welcome to SolarUtils’s documentation!<a class="headerlink" href="#welcome-to-solarutils-s-documentation" title="Link to this heading">¶</a></h1>
+<p><strong>Version</strong> 0.4.8 (Dentists)</p>
+<a class="reference external image-reference" href="https://github.com/mikofski/SolarUtils/actions/workflows/python-test.yml"><img alt="https://github.com/mikofski/SolarUtils/actions/workflows/python-test.yml/badge.svg" src="https://github.com/mikofski/SolarUtils/actions/workflows/python-test.yml/badge.svg" />
+</a>
+<p>SolarUtils is set of Python wrappers around the publicly available
+<a class="reference external" href="http://www.nrel.gov/">NREL</a>
+<a class="reference external" href="http://rredc.nrel.gov/solar/codesandalgorithms/solpos/">SOLPOS</a> and
+<a class="reference external" href="http://rredc.nrel.gov/solar/models/spectral/">SPECTRL2</a> C-language computer
+programs that calculate solar position and spectral decomposition. Please read
+the <a class="reference external" href="http://www.nrel.gov/disclaimer.html">NREL disclaimer and license</a>. Usage
+of this software implies acceptance of the terms.</p>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pip</span></code> to install
+<a class="reference external" href="https://pypi.python.org/pypi/SolarUtils">SolarUtils from the PyPI</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">SolarUtils</span>
+</pre></div>
+</div>
+<p>You can also download a source distribution from PyPI or clone the repository
+and use Python <code class="docutils literal notranslate"><span class="pre">distutils</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</section>
+<section id="requirements">
+<h1>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h1>
+<p>SolarUtils has no requirements for usage however for installation, testing and
+to build the documentaiton you will need the following pacakges:</p>
+<ul class="simple">
+<li><p>NumPy</p></li>
+<li><p>PyTest</p></li>
+<li><p>Sphinx</p></li>
+</ul>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h1>
+<p>See <a class="reference external" href="http://rredc.nrel.gov/solar/codesandalgorithms/solpos/aboutsolpos.html">SOLPOS Documentation</a>
+and
+<a class="reference external" href="http://rredc.nrel.gov/solar/models/spectral/spectrl2/documentation.html">SPECTRL2 Documentation</a>
+for more detail.</p>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">solar_utils</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">35.56836</span><span class="p">,</span> <span class="o">-</span><span class="mf">119.2022</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2013</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weather</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1015.62055</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">airmass</span><span class="p">)</span> <span class="o">=</span> <span class="n">solposAM</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">weather</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zenith</span><span class="p">,</span> <span class="n">azimuth</span> <span class="o">=</span> <span class="n">angles</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zenith</span>
+<span class="go">15.074043273925781</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">azimuth</span>
+<span class="go">213.29042053222656]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">am</span><span class="p">,</span> <span class="n">amp</span> <span class="o">=</span> <span class="n">airmass</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">am</span>
+<span class="go">1.0352272987365723</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">amp</span>
+<span class="go">1.0379053354263306]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">units</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">location</span> <span class="o">=</span> <span class="p">[</span><span class="mf">33.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">84.43</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1999</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">weather</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1006.0</span><span class="p">,</span> <span class="mf">27.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">orientation</span> <span class="o">=</span> <span class="p">[</span><span class="mf">33.65</span><span class="p">,</span> <span class="mf">135.0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atmospheric_conditions</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.14</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">1.36</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">albedo</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span> <span class="o">+</span> <span class="p">([</span><span class="mf">0.2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">specdif</span><span class="p">,</span> <span class="n">specdir</span><span class="p">,</span> <span class="n">specetr</span><span class="p">,</span> <span class="n">specglo</span><span class="p">,</span> <span class="n">specx</span> <span class="o">=</span> <span class="n">spectrl2</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">units</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">weather</span><span class="p">,</span> <span class="n">orientation</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">atmospheric_conditions</span><span class="p">,</span> <span class="n">albedo</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">{</span><span class="s1">'DIF'</span><span class="p">:</span> <span class="n">specdif</span><span class="p">,</span> <span class="s1">'DIR'</span><span class="p">:</span> <span class="n">specdir</span><span class="p">,</span> <span class="s1">'ETR'</span><span class="p">:</span> <span class="n">specetr</span><span class="p">,</span> <span class="s1">'GLO'</span><span class="p">:</span> <span class="n">specglo</span><span class="p">},</span>
+<span class="gp">... </span>    <span class="n">index</span><span class="o">=</span><span class="n">specx</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">spec</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Solar Spectrum Example'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Wavelength, $\lambda [\mu m]$'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Spectral Irradiance, $I_{\lambda} [W/m^2/\mu m]$'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/example.png" src="_images/example.png" />
+</section>
+</section>
+<section id="changes">
+<h1>Changes<a class="headerlink" href="#changes" title="Link to this heading">¶</a></h1>
+<p>For more recent changes, please see
+<a class="reference external" href="https://github.com/mikofski/SolarUtils/releases">GitHub Releases</a>.</p>
+<section id="v0-4-8-dentists-2026-10-22">
+<h2>v0.4.8 - Dentists (2026-10-22)<a class="headerlink" href="#v0-4-8-dentists-2026-10-22" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>use pytest</p></li>
+<li><p>publish to PyPI</p></li>
+<li><p>publish docs</p></li>
+</ul>
+</section>
+<section id="v0-4-doctors-2026-10-08">
+<h2>v0.4 - Doctors (2026-10-08)<a class="headerlink" href="#v0-4-doctors-2026-10-08" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>apply conda-forge patches</p></li>
+<li><p>create github actions</p></li>
+</ul>
+</section>
+<section id="v0-3-carpenters-2019-05-22">
+<h2>v0.3 - Carpenters (2019-05-22)<a class="headerlink" href="#v0-3-carpenters-2019-05-22" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>adds <code class="docutils literal notranslate"><span class="pre">get_solposAM</span></code> and <code class="docutils literal notranslate"><span class="pre">get_solpos8760</span></code></p></li>
+</ul>
+</section>
+<section id="v0-2-1-bartenders-2016-07-11">
+<h2>v0.2.1 - Bartenders (2016-07-11)<a class="headerlink" href="#v0-2-1-bartenders-2016-07-11" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>add documentation</p></li>
+<li><p>add BSD 3-clause license</p></li>
+<li><p>add NREL license and disclaimers</p></li>
+<li><p>fix #5 - Wheel made after <code class="docutils literal notranslate"><span class="pre">build_ext</span></code> doesn’t contain libs</p></li>
+</ul>
+</section>
+<section id="v0-2-bakers-2016-02-23">
+<h2>v0.2 - Bakers (2016-02-23)<a class="headerlink" href="#v0-2-bakers-2016-02-23" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>one source for all platforms</p></li>
+</ul>
+</section>
+<section id="v0-1-4-artists-2016-02-22">
+<h2>v0.1.4 - Artists (2016-02-22)<a class="headerlink" href="#v0-1-4-artists-2016-02-22" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fixes <code class="docutils literal notranslate"><span class="pre">&#64;rpath</span></code> issue with darwin</p></li>
+</ul>
+</section>
+<section id="v0-1-3-actuaries-2016-02-19">
+<h2>v0.1.3 - Actuaries (2016-02-19)<a class="headerlink" href="#v0-1-3-actuaries-2016-02-19" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>compatibility with Python-3</p></li>
+</ul>
+</section>
+<section id="v0-1-2-animal-trainers-2016-02-12">
+<h2>v0.1.2 - Animal Trainers (2016-02-12)<a class="headerlink" href="#v0-1-2-animal-trainers-2016-02-12" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix package names not platform specific</p></li>
+<li><p>change linux to linux2 everywhere</p></li>
+</ul>
+</section>
+<section id="v0-1-1-actors-2016-02-12">
+<h2>v0.1.1 - Actors (2016-02-12)<a class="headerlink" href="#v0-1-1-actors-2016-02-12" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Linux x86-64 wheel with binaries in addition to MS Windows x86-64 wheel</p></li>
+<li><p>fixed some namespace clashes</p></li>
+<li><p>changed <code class="docutils literal notranslate"><span class="pre">solar_utils.py</span></code> to <code class="docutils literal notranslate"><span class="pre">core.py</span></code></p></li>
+<li><p>changed <code class="docutils literal notranslate"><span class="pre">solar_utils_exceptions.py</span></code> to <code class="docutils literal notranslate"><span class="pre">exceptions.py</span></code></p></li>
+<li><p>conformed to variable naming conventions, removed camelcase, use underscores</p></li>
+<li><p>change use of builtin keyword <code class="docutils literal notranslate"><span class="pre">code</span></code> as variable to <code class="docutils literal notranslate"><span class="pre">err_code</span></code></p></li>
+</ul>
+</section>
+<section id="v0-1-astronauts-2016-02-12">
+<h2>v0.1 - Astronauts (2016-02-12)<a class="headerlink" href="#v0-1-astronauts-2016-02-12" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>use pip or setuptools to install</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="core.html#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#get-solpos8760">get_solpos8760</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#get-solposam">get_solposAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#id3">solposAM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#id4">spectrl2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="core.html#int2bits">_int2bits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#solar-utilities-exceptions">Solar Utilities Exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#solpos-error">SOLPOS Error</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions.html#spectrl2-error">SPECTRL2 Error</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/sp_2014_logo_black_orange_rgb.png" alt="Logo of SolarUtils"/>
+            </a></p>
+<h1 class="logo"><a href="#">SolarUtils</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=mikofski&repo=SolarUtils&type=watch&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="core.html" title="next chapter">Core</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Mark Mikofski.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.2.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+    <a href="https://github.com/mikofski/SolarUtils" class="github">
+        <img src="_static/github-banner.svg" alt="Fork me on GitHub" class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
